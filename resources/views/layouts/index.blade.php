@@ -68,20 +68,25 @@
     </style>
 </head>
 <body>
-    <nav id="menu-h">
-        <ul>
-            @if (empty(Auth::user()))
-                @include('layouts.loja')
-            @elseif (Auth::user()->user_type == 0)
-                @include('layouts.loja')
-            @else
-                @include('layouts.admin')
-            @endif
-        </ul>
-    </nav>
+    <div>
+        <nav id="menu-h">
+            <ul>
+                @if (empty(Auth::user()))
+                    @include('layouts.loja')
+                @elseif (Auth::user()->user_type == 0)
+                    @include('layouts.loja')
+                @else
+                    @include('layouts.admin')
+                @endif
+            </ul>
+        </nav>
+    </div>
     <br>
     <div>
         @yield('content')
+    </div>
+    <div>
+        <!-- rodapé !-->
     </div>
 </body>
 </html>
