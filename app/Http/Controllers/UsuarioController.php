@@ -72,7 +72,7 @@ class UsuarioController extends Controller
             array_push($erros, 'senha');
         }
 
-        if ((int) $form['notify']) {
+        if (isset($form['notify'])) {
             if (strlen($form['chat_id']) < 9) {
                 $numeroErros += 1;
                 array_push($erros, 'chat id');
@@ -88,6 +88,7 @@ class UsuarioController extends Controller
 
         $form['password'] = bcrypt($form['password']);
         $form['user_type'] = $form['user_type'] - 1;
+        $form['notify'] = isset($form['notify']) ? $form['notify'] : 0;
 
         try {
             if (empty($form['id'])) {

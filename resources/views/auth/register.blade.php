@@ -98,10 +98,7 @@
                             <label for="email" class="col-md-4 control-label">Deseja receber notificações?</label>
 
                             <div class="col-md-6">
-                                <select name="notify" id="notify" class="form-control">
-                                    <option value="0">Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
+                                <input type="checkbox" id="notify" name="notify" value=1>
                             </div>
                         </div>
 

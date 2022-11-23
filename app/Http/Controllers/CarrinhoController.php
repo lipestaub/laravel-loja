@@ -112,19 +112,25 @@ class CarrinhoController extends Controller
 
         $orderedItems = OrderedItem::with('product')->whereOrderId($orderId)->get();
 
-        $nfMessage = "Olá " . Auth::user()->name . ", seu pedido foi finalizado!";
-        $nfMessage .= "\n\nCódido do pedido = " . $orderId . "\n";
+        $notify = Auth::user()->notify;
 
-        $valorTotalPedido = 0;
+        if ($notify) {
+            $nfMessage = "Olá " . Auth::user()->name . ", seu pedido foi finalizado!";
+            $nfMessage .= "\n\nCódido do pedido = " . $orderId . "\n";
+
+            $valorTotalPedido = 0;
+        }
 
         foreach ($orderedItems as $orderedItem) {
-            $price = (float) str_replace(',', '.', $orderedItem->product->price);
-            $quantity = (float) $orderedItem->quantity;
-            $valorTotalProduto = $price * $quantity;
+            if ($notify) {
+                $price = (float) str_replace(',', '.', $orderedItem->product->price);
+                $quantity = (float) $orderedItem->quantity;
+                $valorTotalProduto = $price * $quantity;
 
-            $nfMessage .= "\n" . $orderedItem->product->description . " - " . $orderedItem->quantity . " un. - R$ " . number_format($price, 2, ',', '.');
-            
-            $valorTotalPedido += $valorTotalProduto;
+                $nfMessage .= "\n" . $orderedItem->product->description . " - " . $orderedItem->quantity . " un. - R$ " . number_format($price, 2, ',', '.');
+                
+                $valorTotalPedido += $valorTotalProduto;
+            }
 
             $product = [
                 'description' => $orderedItem->product->description,
@@ -147,18 +153,20 @@ class CarrinhoController extends Controller
 
         Order::where(['id' => $orderId])->update($order);
 
-        $nfMessage .= "\n\n" . "Valor total = R$ " . number_format($valorTotalPedido, 2, ',', '.');
+        if ($notify) {
+            $nfMessage .= "\n\n" . "Valor total = R$ " . number_format($valorTotalPedido, 2, ',', '.');
 
-        $chatId = 5670662196;
+            $chatId = Auth::user()->chat_id;
 
-        $nfMessage = urlencode($nfMessage);
+            $nfMessage = urlencode($nfMessage);
 
-        $url = "https://api.telegram.org/bot" . env("TELEGRAM_BOT_TOKEN") . "/sendMessage?chat_id=" . $chatId . "&parse_mode=HTML&text=" . $nfMessage;
+            $url = "https://api.telegram.org/bot" . env("TELEGRAM_BOT_TOKEN") . "/sendMessage?chat_id=" . $chatId . "&parse_mode=HTML&text=" . $nfMessage;
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_exec($ch);
-        curl_close($ch);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_exec($ch);
+            curl_close($ch);
+        }
 
         Session::forget('order_id');
 

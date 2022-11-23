@@ -46,7 +46,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator($data)
     {
         return Validator::make($data, [
             'name' => 'required|max:255|min:2',
@@ -54,7 +54,7 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
             'document' => 'required|max:255|min:11',
             'phone_number' => 'required|max:255|min:9',
-            'chat_id' => $data['notify'] == 1 ? 'required|min:9' : '',
+            'chat_id' => isset($data['notify']) ? 'required|min:9' : '',
         ]);
     }
 
@@ -66,17 +66,13 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        // if ($data['notify'] == 2) {
-        //     $data['notify'] = 0;
-        // }
-        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'document' => $data['document'],
             'phone_number' => $data['phone_number'],
-            'notify' => $data['notify'],
+            'notify' => isset($data['notify']) ? $data['notify'] : 0,
             'chat_id' => $data['chat_id']
         ]);
     }
