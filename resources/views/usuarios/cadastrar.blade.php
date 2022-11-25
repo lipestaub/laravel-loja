@@ -46,7 +46,7 @@
             <br>
             {{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'col-sm-3 control-label']) }}
             <div class="col-sm-6">
-                {{ Form::checkbox('notify', 1, false) }}
+                {{ Form::checkbox('notify', 1, null) }}
             </div>
             <br>
             {{ Form::label('chat_id', 'Chat Id', ['class' => 'col-sm-3 control-label']) }}
