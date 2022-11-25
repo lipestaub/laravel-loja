@@ -26,18 +26,18 @@ Route::group(array('prefix' => 'produtos'), function()
         Route::get('/', function () {
             return view('produtos.buscar');
         });
-        Route::get('resultados', 'ProdutoController@buscar');
+        Route::post('resultados', 'ProdutoController@buscar');
     });
 
     Route::post('salvar', 'ProdutoController@salvar');
-    Route::get('comprar/{id}', 'ProdutoController@comprar');
+    Route::post('comprar/{id}', 'ProdutoController@comprar');
 
     Route::group(array('middleware' => ['admin']), function()
     {
         Route::get('/', 'ProdutoController@listar');
         Route::get('cadastrar', 'ProdutoController@formularioCadastro');
-        Route::get('editar/{id}', 'ProdutoController@editar');
-        Route::get('deletar/{id}', 'ProdutoController@deletar');
+        Route::post('editar/{id}', 'ProdutoController@editar');
+        Route::post('deletar/{id}', 'ProdutoController@deletar');
         Route::group(array('prefix' => 'controle-de-estoque'), function()
         {
             Route::get('/', 'ProdutoController@controleDeEstoque');
@@ -52,15 +52,15 @@ Route::group(array('prefix' => 'usuarios', 'middleware' => ['admin']), function(
     Route::get('/', 'UsuarioController@listar');
     Route::get('cadastrar', 'UsuarioController@formularioCadastro');
     Route::post('salvar', 'UsuarioController@salvar');
-    Route::get('editar/{id}', 'UsuarioController@editar');
-    Route::get('deletar/{id}', 'UsuarioController@deletar');
+    Route::post('editar/{id}', 'UsuarioController@editar');
+    Route::post('deletar/{id}', 'UsuarioController@deletar');
 });
 
 Route::group(array('prefix' => 'carrinho'), function()
 {
-    Route::get('editar/{id}', 'CarrinhoController@editar');
+    Route::post('editar/{id}', 'CarrinhoController@editar');
     Route::post('salvar-edicao', 'CarrinhoController@salvar');
-    Route::get('deletar/{id}', 'CarrinhoController@deletar');
+    Route::post('deletar/{id}', 'CarrinhoController@deletar');
     Route::get('/', 'CarrinhoController@listar');
     Route::post('finalizar/{orderId}', 'CarrinhoController@finalizarPedido');
 });

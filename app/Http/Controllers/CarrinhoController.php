@@ -21,7 +21,7 @@ class CarrinhoController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -64,8 +64,6 @@ class CarrinhoController extends Controller
 
     public function editar($id)
     {
-        $orderId = Session::get('order_id');
-
         $orderedItem = OrderedItem::with('product')->where(['id' => $id])->first();
         $view = ['orderedItem' => $orderedItem];
 
