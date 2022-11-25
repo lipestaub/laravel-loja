@@ -35,9 +35,8 @@ Route::group(array('prefix' => 'produtos'), function()
     Route::group(array('middleware' => ['admin']), function()
     {
         Route::get('/', 'ProdutoController@listar');
-        Route::get('cadastrar', 'ProdutoController@formularioCadastro');
-        Route::post('editar/{id}', 'ProdutoController@editar');
-        Route::post('deletar/{id}', 'ProdutoController@deletar');
+        Route::get('formulario/{id?}', 'ProdutoController@formularioCadastro');
+        Route::get('deletar/{id}', 'ProdutoController@deletar');
         Route::group(array('prefix' => 'controle-de-estoque'), function()
         {
             Route::get('/', 'ProdutoController@controleDeEstoque');

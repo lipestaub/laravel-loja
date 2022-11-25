@@ -8,10 +8,10 @@
     <a href="http://localhost:4200/produtos/buscar">Buscar produtos</a>
 </li>
 <li>
-    <a href="http://localhost:4200/produtos/cadastrar">Cadastrar produtos</a>
+    <a href="http://localhost:4200/produtos/formulario">Cadastrar produtos</a>
 </li>
 <li>
-    <a href="http://localhost:4200/usuarios/cadastrar">Cadastrar Usu&aacute;rios</a>
+    <a href="http://localhost:4200/usuarios/formulario">Cadastrar Usu&aacute;rios</a>
 </li>
 <li>
     <a href="http://localhost:4200/produtos/controle-de-estoque">Controle de estoque</a>

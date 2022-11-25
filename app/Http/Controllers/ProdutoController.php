@@ -29,9 +29,15 @@ class ProdutoController extends Controller
         return view('produtos.listar', $view);
     }
 
-    public function formularioCadastro()
+    public function formularioCadastro($id = null)
     {
-        $produto = new Product();
+        if ($id == null) {
+            $produto = new Product();
+        }
+        else {
+            $produto = Product::find($id);
+        }
+
         $view = ['produto' => $produto];
 
         return view('produtos.cadastrar', $view);
@@ -137,14 +143,6 @@ class ProdutoController extends Controller
         }
 
         return redirect('/');
-    }
-
-    public function editar($id)
-    {
-        $produto = Product::find($id);
-        $view = ['produto' => $produto];
-
-        return view('produtos.cadastrar', $view);
     }
 
     public function deletar($id)
