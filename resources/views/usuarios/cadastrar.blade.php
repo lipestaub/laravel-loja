@@ -5,64 +5,62 @@
     <h3>Cadastrar usuários</h3>
     <br>
 </div>
+
 @if (Session::has('alert-error'))
     <div class="align-center">
         <span class="align-center">Erro: {{ Session::get('alert-error') }}</span>
     </div>
     <br>
 @endif
-<div class="panel-body">
+
+<div class="">
     {{ Form::model($usuario, ['url' => 'usuarios/salvar', 'method' => 'post']) }}
-        <div class="form-group">
-            {{ Form::label('user_type', 'Tipo de usuário', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
+        <div class="">
+            {{ Form::label('user_type', 'Tipo de usuário', ['class' => '']) }}
+            <div class="">
                 {{ Form::select('user_type', array(0 => 'Selecione...', 1 => 'Cliente', 2 => 'Administrador'), null) }}
             </div>
             <br>
-            {{ Form::label('name', 'Nome', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::text('name', null, ['class' => 'form-control'])}}
+            {{ Form::label('name', 'Nome', ['class' => '']) }}
+            <div class="">
+                {{ Form::text('name', null, ['class' => ''])}}
             </div>
             <br>
-            {{ Form::label('document', 'Documento', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::text('document', null, ['class' => 'form-control'])}}
+            {{ Form::label('document', 'Documento', ['class' => '']) }}
+            <div class="">
+                {{ Form::text('document', null, ['class' => ''])}}
             </div>
             <br>
-            {{ Form::label('phone_number', 'Celular', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::text('phone_number', null, ['class' => 'form-control'])}}
+            {{ Form::label('phone_number', 'Celular', ['class' => '']) }}
+            <div class="">
+                {{ Form::text('phone_number', null, ['class' => ''])}}
             </div>
             <br>
-            {{ Form::label('email', 'E-mail', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::email('email', null, ['class' => 'form-control'])}}
+            {{ Form::label('email', 'E-mail', ['class' => '']) }}
+            <div class="">
+                {{ Form::email('email', null, ['class' => ''])}}
             </div>
             <br>
-            {{ Form::label('password', 'Senha', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::password('password', null, ['class' => 'form-control'])}}
+            {{ Form::label('password', 'Senha', ['class' => '']) }}
+            <div class="">
+                {{ Form::password('password', null, ['class' => ''])}}
             </div>
             <br>
-            {{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::checkbox('notify', 1, null) }}
+            <div class="form-check">
+                {{ Form::checkbox('notify', 1, null, ['class' => 'form-check-input']) }}
+                {{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'form-check-label']) }}
             </div>
             <br>
-            {{ Form::label('chat_id', 'Chat Id', ['class' => 'col-sm-3 control-label']) }}
-            <div class="col-sm-6">
-                {{ Form::text('chat_id', null, ['class' => 'form-control'])}}
+            {{ Form::label('chat_id', 'Chat Id', ['class' => '']) }}
+            <div class="">
+                {{ Form::text('chat_id', null, ['class' => ''])}}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
         </div>
         
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-6">
-                <button type="submit" class="btn btn-default">
-                    <i class="fa fa-plus"></i> Salvar
-                </button>
-            </div>
+        <div class="">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
         </div>
     {{ Form::close() }}
 </div>

@@ -14,12 +14,14 @@
 @endif
 
 {{ Form::open(['url' => 'produtos/buscar/resultados', 'method' => 'post']) }}
-    {{ Form::label('search', 'O que você procura?', ['class' => 'col-sm-3 control-label']) }}
-    <div class="col-sm-6">
-        {{ Form::text('search', null, ['class' => 'form-control'])}}
-    {{ Form::submit('Buscar') }}
+    {{ Form::label('search', 'O que você procura?', ['class' => '']) }}
+    <div class="">
+        {{ Form::text('search', null, ['class' => ''])}}
+    {{ Form::submit('Buscar', ['class' => 'btn btn-primary']) }}
     </div>
 {{ Form::close() }}
+
+<br>
 
 @if (!empty($produtos))
     @if (!$produtos->isEmpty())

@@ -49,7 +49,7 @@ Route::group(array('prefix' => 'produtos'), function()
 Route::group(array('prefix' => 'usuarios', 'middleware' => ['admin']), function()
 {
     Route::get('/', 'UsuarioController@listar');
-    Route::get('cadastrar', 'UsuarioController@formularioCadastro');
+    Route::get('formulario', 'UsuarioController@formularioCadastro');
     Route::post('salvar', 'UsuarioController@salvar');
     Route::post('editar/{id}', 'UsuarioController@editar');
     Route::post('deletar/{id}', 'UsuarioController@deletar');

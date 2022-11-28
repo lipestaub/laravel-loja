@@ -18,7 +18,6 @@
     @endif
 
     <br>
-
     <table>
         <th>Descri&ccedil;&atilde;o</th>
         <th>Quantidade</th>
@@ -56,7 +55,7 @@
         <br>
     <h4>Valor total: R$ {{ $valorTotal }}</h4>
     {{ Form::open(['url' => 'carrinho/finalizar/' . $orderedItem->order_id, 'method' => 'post']) }}
-        {{ Form::submit('Finalizar pedido') }}
+        {{ Form::submit('Finalizar pedido', ['class' => 'btn btn-primary']) }}
     {{ Form::close() }}
 @else
     {{ 'O carrinho está vazio.' }}
