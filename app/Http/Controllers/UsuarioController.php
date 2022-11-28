@@ -68,8 +68,13 @@ class UsuarioController extends Controller
         }
 
         if (strlen($form['password']) < 6){
-            $numeroErros += 1;
-            array_push($erros, 'senha');
+            if (isset($form['id']) && empty($form['password'])) {
+                unset($form['password']);
+            }
+            else {
+                $numeroErros += 1;
+                array_push($erros, 'senha');
+            }
         }
 
         if (isset($form['notify'])) {
@@ -86,7 +91,10 @@ class UsuarioController extends Controller
             return redirect()->back()->withInput($request->all());
         }
 
-        $form['password'] = bcrypt($form['password']);
+        if (isset($form['password'])) {
+            $form['password'] = bcrypt($form['password']);
+        }
+        
         $form['user_type'] = $form['user_type'] - 1;
         $form['notify'] = isset($form['notify']) ? $form['notify'] : 0;
 
