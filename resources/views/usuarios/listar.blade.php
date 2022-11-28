@@ -17,12 +17,8 @@
         </td>
         <td>
             <div class="options">
-                {{ Form::open(['url' => 'usuarios/editar/' . $usuario->id, 'method' => 'post']) }}
-                    {{ Form::submit('Editar') }}
-                {{ Form::close() }}
-                {{ Form::open(['url' => 'usuarios/deletar/' . $usuario->id, 'method' => 'post']) }}
-                    {{ Form::submit('Excluir') }}
-                {{ Form::close() }}
+                <a href="/usuarios/editar/{{ $usuario->id }}">Editar</a>
+                <a href="/usuarios/deletar/{{ $usuario->id }}">Deletar</a>
             </div>
         </td>
     </tr>

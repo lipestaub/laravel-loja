@@ -51,8 +51,8 @@ Route::group(array('prefix' => 'usuarios', 'middleware' => ['admin']), function(
     Route::get('/', 'UsuarioController@listar');
     Route::get('formulario', 'UsuarioController@formularioCadastro');
     Route::post('salvar', 'UsuarioController@salvar');
-    Route::post('editar/{id}', 'UsuarioController@editar');
-    Route::post('deletar/{id}', 'UsuarioController@deletar');
+    Route::get('editar/{id}', 'UsuarioController@editar');
+    Route::get('deletar/{id}', 'UsuarioController@deletar');
 });
 
 Route::group(array('prefix' => 'carrinho'), function()
