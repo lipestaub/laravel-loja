@@ -39,7 +39,7 @@ class CarrinhoController extends Controller
 
             $orderedItems = OrderedItem::with('product')->whereOrderId($orderId)->get();
 
-            if(!$orderedItems->isEmpty()) {
+            if (!$orderedItems->isEmpty()) {
                 foreach ($orderedItems as $orderedItem) {
                     $price = (float) str_replace(',', '.', $orderedItem->product->price);
                     $quantity = (float) $orderedItem->quantity;
@@ -47,11 +47,9 @@ class CarrinhoController extends Controller
                     
                     $valorTotalCarrinho += $valorTotalProduto;
                 }
-    
-                $orderedItems->put('valorTotal', str_replace('.', ',', $valorTotalCarrinho));
             }
 
-            $view = ['orderedItems' => $orderedItems];
+            $view = ['orderedItems' => $orderedItems, 'valorTotalCarrinho' => $valorTotalCarrinho];
 
             return view('carrinho', $view);
         }

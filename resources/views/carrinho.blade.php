@@ -6,17 +6,11 @@
     <br>
 
 @if (!empty($orderedItems) && !$orderedItems->isEmpty())
-    @php
-        $valorTotal = $orderedItems['valorTotal'];
-        $orderedItems->forget('valorTotal')
-    @endphp
-
     @if ($orderedItems->sum('quantity') == 1)
         <div>1 item no carrinho</div>
     @else
         <div>{{ $orderedItems->sum('quantity') }} itens no carrinho</div>
     @endif
-
     <br>
     <table>
         <th>Descri&ccedil;&atilde;o</th>
@@ -41,19 +35,15 @@
             </td>
             <td>
                 <div class="options">
-                    {{ Form::open(['url' => 'carrinho/editar/' . $orderedItem->id, 'method' => 'post']) }}
-                        {{ Form::submit('Editar') }}
-                    {{ Form::close() }}
-                    {{ Form::open(['url' => 'carrinho/deletar/' . $orderedItem->id, 'method' => 'post']) }}
-                        {{ Form::submit('Excluir') }}
-                    {{ Form::close() }}
+                    <a href="/carrinho/editar/{{ $orderedItem->id }}">Editar</a>
+                    <a href="/carrinho/deletar/{{ $orderedItem->id }}">Deletar</a>
                 </div>
             </td>
         </tr>
         @endforeach
     </table>
         <br>
-    <h4>Valor total: R$ {{ $valorTotal }}</h4>
+    <h4>Valor total: R$ {{ $valorTotalCarrinho }}</h4>
     {{ Form::open(['url' => 'carrinho/finalizar/' . $orderedItem->order_id, 'method' => 'post']) }}
         {{ Form::submit('Finalizar pedido', ['class' => 'btn btn-primary']) }}
     {{ Form::close() }}
