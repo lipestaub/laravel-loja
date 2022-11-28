@@ -4,68 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    {!!Html::style("bootstrap/css/bootstrap.min.css")!!}
+    {!!Html::style("site.css")!!}
+    {!!Html::script("bootstrap/js/bootstrap.min.js")!!}
+
     <title>Loja</title>
-    
-    <style>
-        * {
-            margin: 0 auto;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        img {
-            height: 50px;
-            width: 50px;
-            text-align: center;
-        }
-
-        span {
-            background-color: black;
-            font-weight: bold;
-            color: white;
-        }
-
-        select {
-            width: 207px;
-        }
-
-
-        .align-center {
-            text-align: center;
-        }
-
-        .align-right {
-            text-align: right;
-        }
-
-        .align-left {
-            text-align: left;
-        }
-        .options {
-            display: flex;
-        }
-
-        th, td {
-            text-align: center;
-            padding: 5px;
-        }
-        
-        #menu-h ul {
-            max-width: 800px;
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        
-        #menu-h ul li {
-            display: inline;
-        }
-        
-        #menu-h ul li a {
-            display: inline-block;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <div>

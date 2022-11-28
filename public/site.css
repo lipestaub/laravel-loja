@@ -1,0 +1,58 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+span {
+    background-color: black;
+    font-weight: bold;
+    color: white;
+}
+
+select {
+    width: 207px;
+}
+
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+.options {
+    display: flex;
+}
+
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+
+#menu-h ul {
+    max-width: 800px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#menu-h ul li {
+    display: inline;
+}
+
+#menu-h ul li a {
+    display: inline-block;
+    text-decoration: none;
+}
