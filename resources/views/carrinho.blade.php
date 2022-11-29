@@ -53,7 +53,6 @@
         <br>
         @endforeach
     </div>
-    <br>
     <h5>Valor total: R$ {{ $valorTotalCarrinho }}</h5>
     {{ Form::open(['url' => 'carrinho/finalizar/' . $orderedItem->order_id, 'method' => 'post']) }}
         {{ Form::submit('Finalizar pedido', ['class' => 'btn btn-primary']) }}
