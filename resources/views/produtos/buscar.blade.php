@@ -25,29 +25,44 @@
 
 @if (!empty($produtos))
     @if (!$produtos->isEmpty())
-        <table>
-            <th>Descri&ccedil;&atilde;o</th>
-            <th>Pre&ccedil;o</th>
-            <th>Op&ccedil;&otilde;es</th>
-        
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-1">
+                    <strong>Imagem</strong>
+                </div>
+                <div class="col-sm-1">
+                    <strong>Descri&ccedil;&atilde;o</strong>
+                </div>
+                <div class="col-sm-2">
+                    <strong>Pre&ccedil;o</strong>
+                </div>
+                <div class="col-sm-1">
+                    <strong>Op&ccedil;&otilde;es</strong>
+                </div>
+            </div>
+            <br>
             @foreach ($produtos as $produto)
-                <tr>
-                    <td>
-                        {{ $produto->description }}
-                    </td>
-                    <td>
-                        {{'R$ ' . $produto->price }}
-                    </td>
-                    <td>
-                        <div class="options">
-                            {{ Form::open(['url' => 'produtos/comprar/' . $produto->id, 'method' => 'post']) }}
-                                {{ Form::submit('Comprar') }}
-                            {{ Form::close() }}
-                        </div>
-                    </td>
-                </tr>
+            <div class="row text-center">
+                <div class="col-sm-1">
+                    @if ($produto->image_path == null)
+                        <img src="{{ asset('defaultProductImage.jpg') }}">
+                    @else
+                        <img class="" src="{{ asset($produto->image_path) }}">
+                    @endif
+                </div>
+                <div class="col-sm-1">
+                    {{ $produto->description }}
+                </div>
+                <div class="col-sm-2">
+                    {{'R$ ' . $produto->price }}
+                </div>
+                <div class="col-sm-1">
+                    <a href="/produtos/comprar/{{ $produto->id }}">Comprar</a>
+                </div>
+            </div>
+            <br>
             @endforeach
-        </table>
+        </div>
     @else
         <div>Nenhum produto encontrado.</div>     
     @endif

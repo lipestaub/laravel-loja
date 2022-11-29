@@ -1,7 +1,10 @@
 @extends('layouts.index')
 
 @section('content')
-<h3>Listar usuários</h3>
+<div class="align-center">
+    <h3>Listar usuários</h3>
+    <br>
+</div>
 <table>
     <th>Nome</th>
     <th>Tipo</th>

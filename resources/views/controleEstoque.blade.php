@@ -12,29 +12,24 @@
     </div>
     <br>
 @endif
-<div class="">
+<div class="form-control">
     {{ Form::model($products, ['url' => 'produtos/controle-de-estoque/registrar', 'method' => 'post']) }}
         <div class="form-group">
             {{ Form::label('type', 'Tipo', ['class' => '']) }}
-            <div class="">
-                {{ Form::select('type', array(0 => 'Selecione...', 1 => 'Saída', 2 => 'Entrada'), null) }}
-            </div>
-            <br>
+            {{ Form::select('type', array(0 => 'Selecione...', 1 => 'Saída', 2 => 'Entrada'), null, ['class' => 'form-select form-select-sm']) }}
+        </div>
+        <br>
+        <div class="form-group">
             {{ Form::label('produto', 'Produto', ['class' => '']) }}
-            <div class="">
-                {{ Form::select('product_id', $products)}}
-            </div>
-            <br>
+            {{ Form::select('product_id', $products, null, ['class' => 'form-select form-select-sm'])}}
+        </div>
+        <br>  
+        <div class="form-group">
             {{ Form::label('quantity', 'Quantidade', ['class' => '']) }}
-            <div class="">
-                {{ Form::text('quantity', null, ['class' => ''])}}
-            </div>
-            <br>
+            {{ Form::text('quantity', null, ['class' => 'form-control'])}}
         </div>
-
-        <div class="">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
-        </div>
+        <br>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
     {{ Form::close() }}
 </div>
 @endsection

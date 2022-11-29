@@ -1,7 +1,10 @@
 @extends('layouts.index')
 
 @section('content')
-<h3>Listar produtos</h3>
+<div class="align-center">
+    <h3>Listar produtos</h3>
+    <br>
+</div>
 <table>
     <th>Imagem</th>
     <th>Descri&ccedil;&atilde;o</th>

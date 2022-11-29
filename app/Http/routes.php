@@ -30,7 +30,7 @@ Route::group(array('prefix' => 'produtos'), function()
     });
 
     Route::post('salvar', 'ProdutoController@salvar');
-    Route::post('comprar/{id}', 'ProdutoController@comprar');
+    Route::get('comprar/{id}', 'ProdutoController@comprar');
 
     Route::group(array('middleware' => ['admin']), function()
     {

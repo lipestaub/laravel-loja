@@ -31,7 +31,7 @@
             <br>
             {{ Form::label('image_path', 'Imagem', ['class' => '']) }}
             <div class="">
-                {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg']) }}
+                {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg', 'class' => 'form-control form-control-sm']) }}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
