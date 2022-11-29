@@ -18,32 +18,32 @@
         <div class="">
             {{ Form::label('user_type', 'Tipo de usuário', ['class' => '']) }}
             <div class="">
-                {{ Form::select('user_type', array(0 => 'Selecione...', 1 => 'Cliente', 2 => 'Administrador'), null) }}
+                {{ Form::select('user_type', array(0 => 'Selecione...', 1 => 'Cliente', 2 => 'Administrador'), null, ['class' => 'form-select form-select-sm']) }}
             </div>
             <br>
             {{ Form::label('name', 'Nome', ['class' => '']) }}
             <div class="">
-                {{ Form::text('name', null, ['class' => ''])}}
+                {{ Form::text('name', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('document', 'Documento', ['class' => '']) }}
             <div class="">
-                {{ Form::text('document', null, ['class' => ''])}}
+                {{ Form::text('document', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('phone_number', 'Celular', ['class' => '']) }}
             <div class="">
-                {{ Form::text('phone_number', null, ['class' => ''])}}
+                {{ Form::text('phone_number', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('email', 'E-mail', ['class' => '']) }}
             <div class="">
-                {{ Form::email('email', null, ['class' => ''])}}
+                {{ Form::email('email', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('password', 'Senha', ['class' => '']) }}
             <div class="">
-                {{ Form::password('password', null, ['class' => ''])}}
+                {{ Form::text('password', null, ['class' => 'form-control'])}}
             </div>
             <br>
             <div class="form-check">
@@ -53,7 +53,7 @@
             <br>
             {{ Form::label('chat_id', 'Chat Id', ['class' => '']) }}
             <div class="">
-                {{ Form::text('chat_id', null, ['class' => ''])}}
+                {{ Form::text('chat_id', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::hidden('id', null) }}

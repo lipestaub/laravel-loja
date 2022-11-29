@@ -15,9 +15,9 @@
 
 {{ Form::open(['url' => 'produtos/buscar/resultados', 'method' => 'post']) }}
     {{ Form::label('search', 'O que você procura?', ['class' => '']) }}
-    <div class="">
-        {{ Form::text('search', null, ['class' => ''])}}
-    {{ Form::submit('Buscar', ['class' => 'btn btn-primary']) }}
+    <div class="d-flex flex-row">
+        {{ Form::text('search', null, ['class' => 'form-control'])}}
+        {{ Form::submit('Buscar', ['class' => 'btn btn-primary']) }}
     </div>
 {{ Form::close() }}
 

@@ -16,28 +16,28 @@
         <div class="form-group">
             {{ Form::label('description', 'Descrição', ['class' => '']) }}
             <div class="">
-                {{ Form::text('description', null, ['class' => ''])}}
+                {{ Form::text('description', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('price', 'Preço', ['class' => '']) }}
             <div class="">
-                {{ Form::text('price', null, ['class' => ''])}}
+                {{ Form::text('price', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('stock', 'Quantidade', ['class' => '']) }}
             <div class="">
-                {{ Form::text('stock', null, ['class' => ''])}}
+                {{ Form::text('stock', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::label('image_path', 'Imagem', ['class' => '']) }}
             <div class="">
-                {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg', 'class' => 'form-control form-control-sm']) }}
+                {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg', 'class' => 'form-control form-control-file']) }}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
         </div>
         
-        <div class="form-group">
+        <div class="text-center">
             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
         </div>
     {{ Form::close() }}

@@ -20,7 +20,7 @@
             <br>
             {{ Form::label('quantity', 'Quantidade', ['class' => '']) }}
             <div class="">
-                {{ Form::number('quantity', null, ['class' => '', 'min' => 0])}}
+                {{ Form::number('quantity', null, ['class' => 'form-control', 'min' => 0])}}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
@@ -28,7 +28,7 @@
             {{ Form::hidden('product[price]', null) }}
         </div>
         
-        <div class="form-group">
+        <div class="text-center">
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     {{ Form::close() }}

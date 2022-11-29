@@ -12,7 +12,7 @@
     </div>
     <br>
 @endif
-<div class="form-control">
+<div>
     {{ Form::model($products, ['url' => 'produtos/controle-de-estoque/registrar', 'method' => 'post']) }}
         <div class="form-group">
             {{ Form::label('type', 'Tipo', ['class' => '']) }}
@@ -29,7 +29,9 @@
             {{ Form::text('quantity', null, ['class' => 'form-control'])}}
         </div>
         <br>
-        <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
+        </div>
     {{ Form::close() }}
 </div>
 @endsection
