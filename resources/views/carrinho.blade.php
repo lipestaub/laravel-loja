@@ -12,38 +12,49 @@
         <div>{{ $orderedItems->sum('quantity') }} itens no carrinho</div>
     @endif
     <br>
-    <table>
-        <th>Descri&ccedil;&atilde;o</th>
-        <th>Quantidade</th>
-        <th>Pre&ccedil;o</th>
-        <th>Subtotal</th>
-        <th>Op&ccedil;&otilde;es</th>
-        
-        @foreach ($orderedItems as $orderedItem)
-        <tr>
-            <td>
-                {{ $orderedItem->product->description }}
-            </td>
-            <td>
-                {{ $orderedItem->quantity }}
-            </td>
-            <td>
-                {{ 'R$ ' . $orderedItem->product->price }}
-            </td>
-            <td>
-                {{ 'R$ ' . number_format((float) (str_replace(',', '.', $orderedItem->product->price) * $orderedItem->quantity), 2, ',', '.') }}
-            </td>
-            <td>
-                <div class="options">
-                    <a href="/carrinho/editar/{{ $orderedItem->id }}">Editar</a>
-                    <a href="/carrinho/deletar/{{ $orderedItem->id }}">Deletar</a>
-                </div>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-1">
+                <strong>Descri&ccedil;&atilde;o</strong>
+            </div>
+            <div class="col-sm-1">
+                <strong>Quantidade</strong>
+            </div>
+            <div class="col-sm-2">
+                <strong>Pre&ccedil;o</strong>
+            </div>
+            <div class="col-sm-2">
+                <strong>Subtotal</strong>
+            </div>
+            <div class="col-sm-1">
+                <strong>Op&ccedil;&otilde;es</strong>
+            </div>
+        </div>
         <br>
-    <h4>Valor total: R$ {{ $valorTotalCarrinho }}</h4>
+        @foreach ($orderedItems as $orderedItem)
+        <div class="row text-center">
+            <div class="col-sm-1">
+                {{ $orderedItem->product->description }}
+            </div>
+            <div class="col-sm-1">
+                {{ $orderedItem->quantity }}
+            </div>
+            <div class="col-sm-2">
+                {{ 'R$ ' . $orderedItem->product->price }}
+            </div>
+            <div class="col-sm-2">
+                {{ 'R$ ' . number_format((float) (str_replace(',', '.', $orderedItem->product->price) * $orderedItem->quantity), 2, ',', '.') }}
+            </div>
+            <div class="col-sm-1">
+                <a href="/carrinho/editar/{{ $orderedItem->id }}">Editar</a>
+                <a href="/carrinho/deletar/{{ $orderedItem->id }}">Deletar</a>
+            </div>
+        </div>
+        <br>
+        @endforeach
+    </div>
+    <br>
+    <h5>Valor total: R$ {{ $valorTotalCarrinho }}</h5>
     {{ Form::open(['url' => 'carrinho/finalizar/' . $orderedItem->order_id, 'method' => 'post']) }}
         {{ Form::submit('Finalizar pedido', ['class' => 'btn btn-primary']) }}
     {{ Form::close() }}
