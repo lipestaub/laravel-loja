@@ -11,6 +11,7 @@
     @else
         <div>{{ $orderedItems->sum('quantity') }} itens no carrinho</div>
     @endif
+    
     <br>
     <div class="container">
         <div class="row text-center">

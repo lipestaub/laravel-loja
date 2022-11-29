@@ -13,36 +13,36 @@
     <br>
 @endif
 
-<div class="">
+<div>
     {{ Form::model($usuario, ['url' => 'usuarios/salvar', 'method' => 'post']) }}
-        <div class="">
-            {{ Form::label('user_type', 'Tipo de usuário', ['class' => '']) }}
-            <div class="">
+        <div>
+            {{ Form::label('user_type', 'Tipo de usuário') }}
+            <div>
                 {{ Form::select('user_type', array(0 => 'Selecione...', 1 => 'Cliente', 2 => 'Administrador'), null, ['class' => 'form-select form-select-sm']) }}
             </div>
             <br>
-            {{ Form::label('name', 'Nome', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('name', 'Nome') }}
+            <div>
                 {{ Form::text('name', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('document', 'Documento', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('document', 'Documento') }}
+            <div>
                 {{ Form::text('document', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('phone_number', 'Celular', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('phone_number', 'Celular') }}
+            <div>
                 {{ Form::text('phone_number', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('email', 'E-mail', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('email', 'E-mail') }}
+            <div>
                 {{ Form::email('email', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('password', 'Senha', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('password', 'Senha') }}
+            <div>
                 {{ Form::text('password', null, ['class' => 'form-control'])}}
             </div>
             <br>
@@ -51,15 +51,15 @@
                 {{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'form-check-label']) }}
             </div>
             <br>
-            {{ Form::label('chat_id', 'Chat Id', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('chat_id', 'Chat Id') }}
+            <div>
                 {{ Form::text('chat_id', null, ['class' => 'form-control'])}}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
         </div>
         
-        <div class="">
+        <div class="text-center">
             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
         </div>
     {{ Form::close() }}

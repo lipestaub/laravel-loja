@@ -1,13 +1,6 @@
 @extends('layouts.index')
 
 @section('content')
-<!--
-@if (!empty(Auth::user()))
-    <div class="align-right">
-        <div>Bem-vindo, {{ Auth::user()->name }}</div>
-    </div>
-@endif
-!-->
 <div class="align-center">
     <h3>Home</h3>
     <br>
@@ -34,7 +27,7 @@
             @if ($produto->image_path == null)
                 <img src="{{ asset('defaultProductImage.jpg') }}">
             @else
-                <img class="" src="{{ asset($produto->image_path) }}">
+                <img  src="{{ asset($produto->image_path) }}">
             @endif
         </div>
         <div class="col-sm-1">

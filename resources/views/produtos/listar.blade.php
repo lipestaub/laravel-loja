@@ -27,7 +27,7 @@
             @if ($produto->image_path == null)
                 <img src="{{ asset('defaultProductImage.jpg') }}">
             @else
-                <img class="" src="{{ asset($produto->image_path) }}">
+                <img  src="{{ asset($produto->image_path) }}">
             @endif
         </div>
         <div class="col-sm-1">

@@ -11,32 +11,31 @@
     </div>
     <br>
 @endif
-<div class="">
+<div>
     {{ Form::model($produto, ['url' => 'produtos/salvar', 'method' => 'post', 'enctype' => 'multipart/form-data']) }}
         <div class="form-group">
-            {{ Form::label('description', 'Descrição', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('description', 'Descrição') }}
+            <div>
                 {{ Form::text('description', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('price', 'Preço', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('price', 'Preço') }}
+            <div>
                 {{ Form::text('price', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('stock', 'Quantidade', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('stock', 'Quantidade') }}
+            <div>
                 {{ Form::text('stock', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('image_path', 'Imagem', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('image_path', 'Imagem') }}
+            <div>
                 {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg', 'class' => 'form-control form-control-file']) }}
             </div>
             <br>
             {{ Form::hidden('id', null) }}
-        </div>
-        
+        </div> 
         <div class="text-center">
             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
         </div>

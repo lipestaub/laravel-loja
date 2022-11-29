@@ -7,19 +7,19 @@
 </div>
 <div class="panel-body">
     {{ Form::model($orderedItem, ['url' => 'carrinho/salvar-edicao', 'method' => 'post']) }}
-        <div class="">
-            {{ Form::label('description', 'Descrição', ['class' => '']) }}
-            <div class="">
-            {{ Form::label('productDescription', $orderedItem->product->description, ['class' => '', 'readonly' => 'true'])}}
+        <div>
+            {{ Form::label('description', 'Descrição') }}
+            <div>
+            {{ Form::label('productDescription', $orderedItem->product->description)}}
             </div>
             <br>
-            {{ Form::label('price', 'Preço', ['class' => '']) }}
-            <div class="">
-            {{ Form::label('productPrice', $orderedItem->product->price, ['class' => '', 'readonly' => 'true'])}}
+            {{ Form::label('price', 'Preço') }}
+            <div>
+            {{ Form::label('productPrice', $orderedItem->product->price)}}
             </div>
             <br>
-            {{ Form::label('quantity', 'Quantidade', ['class' => '']) }}
-            <div class="">
+            {{ Form::label('quantity', 'Quantidade') }}
+            <div>
                 {{ Form::number('quantity', null, ['class' => 'form-control', 'min' => 0])}}
             </div>
             <br>

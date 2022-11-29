@@ -14,7 +14,7 @@
 @endif
 
 {{ Form::open(['url' => 'produtos/buscar/resultados', 'method' => 'post']) }}
-    {{ Form::label('search', 'O que você procura?', ['class' => '']) }}
+    {{ Form::label('search', 'O que você procura?') }}
     <div class="d-flex flex-row">
         {{ Form::text('search', null, ['class' => 'form-control'])}}
         {{ Form::submit('Buscar', ['class' => 'btn btn-primary']) }}
@@ -47,7 +47,7 @@
                     @if ($produto->image_path == null)
                         <img src="{{ asset('defaultProductImage.jpg') }}">
                     @else
-                        <img class="" src="{{ asset($produto->image_path) }}">
+                        <img src="{{ asset($produto->image_path) }}">
                     @endif
                 </div>
                 <div class="col-sm-1">
