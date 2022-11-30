@@ -37,8 +37,10 @@
             {{'R$ ' . $produto->price }}
         </div>
         <div class="col-sm-1">
-            <a href="/produtos/formulario/{{ $produto->id }}">Editar</a>
-            <a href="/produtos/deletar/{{ $produto->id }}">Deletar</a>
+            <div class="d-flex">
+                <a class="btn btn-primary" href="/produtos/editar/{{ $produto->id }}"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                <a class="btn btn-danger" href="/produtos/deletar/{{ $produto->id }}"><i class="fa fa-remove"></i> Deletar</a>
+            </div>
         </div>
     </div>
     <br>

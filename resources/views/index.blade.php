@@ -37,7 +37,7 @@
             {{'R$ ' . $produto->price }}
         </div>
         <div class="col-sm-1">
-            <a href="/produtos/comprar/{{ $produto->id }}">Comprar</a>
+            <a class="btn btn-primary" href="/produtos/comprar/{{ $produto->id }}">Comprar</a>
         </div>
     </div>
     <br>

@@ -27,8 +27,10 @@
             {{ $usuario->user_type }}
         </div>
         <div class="col-sm-1">
-            <a href="/usuarios/editar/{{ $usuario->id }}">Editar</a>
-            <a href="/usuarios/deletar/{{ $usuario->id }}">Deletar</a>
+            <div class="d-flex">
+                <a class="btn btn-primary" href="/usuarios/editar/{{ $usuario->id }}"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                <a class="btn btn-danger" href="/usuarios/deletar/{{ $usuario->id }}"><i class="fa fa-remove"></i> Deletar</a>
+            </div>
         </div>
     </div>
     <br>

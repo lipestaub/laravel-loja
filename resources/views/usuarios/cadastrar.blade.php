@@ -60,7 +60,7 @@
         </div>
         
         <div class="text-center">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Salvar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     {{ Form::close() }}
 </div>

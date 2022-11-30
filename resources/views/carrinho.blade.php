@@ -47,8 +47,10 @@
                 {{ 'R$ ' . number_format((float) (str_replace(',', '.', $orderedItem->product->price) * $orderedItem->quantity), 2, ',', '.') }}
             </div>
             <div class="col-sm-1">
-                <a href="/carrinho/editar/{{ $orderedItem->id }}">Editar</a>
-                <a href="/carrinho/deletar/{{ $orderedItem->id }}">Deletar</a>
+                <div class="d-flex">
+                    <a class="btn btn-primary" href="/carrinho/editar/{{ $orderedItem->id }}"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                    <a class="btn btn-danger" href="/carrinho/deletar/{{ $orderedItem->id }}"><i class="fa fa-remove"></i> Deletar</a>
+                </div>
             </div>
         </div>
         <br>
