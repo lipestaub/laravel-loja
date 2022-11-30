@@ -36,6 +36,14 @@ select {
     display: flex;
 }
 
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
 th, td {
     text-align: center;
     padding: 5px;
