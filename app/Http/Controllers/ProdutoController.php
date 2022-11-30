@@ -68,20 +68,22 @@ class ProdutoController extends Controller
             $erros = implode(', ', $erros);
             
             $request->session()->flash('alert-error', 'Verfique os campos (' . $erros . ') e tente novamente.');
-            return redirect('produtos/cadastrar')->withInput($request->all());
+            return redirect()->back()->withInput($request->all());
         }
 
         $uploadedFile = isset($form['image_path']) ? $form['image_path'] : null;
         
         try {
             DB::transaction(function() use ($form, $uploadedFile) {
+                unset($form['image_path']);
+
                 if (empty($form['id'])) {
                     $product = Product::create($form);
-
-                    $form['image_path'] = $uploadedFile != null ? $this->image($uploadedFile, $product->id) : null;
+                    $form['id'] = $product->id;
                 }
-                else {
-                    $form['image_path'] = $uploadedFile != null ? $this->image($uploadedFile, $form['id']) : Product::whereId($form['id'])->first()->image_path;
+
+                if ($uploadedFile != null) {
+                    $form['image_path'] = $this->image($uploadedFile, $form['id']);
                 }
 
                 Product::whereId($form['id'])->update($form);
