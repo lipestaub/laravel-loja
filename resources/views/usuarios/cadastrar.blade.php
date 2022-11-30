@@ -43,7 +43,7 @@
             <br>
             {{ Form::label('password', 'Senha') }}
             <div>
-                {{ Form::text('password', null, ['class' => 'form-control'])}}
+                {{ Form::password('password', ['class' => 'form-control'])}}
             </div>
             <br>
             <div class="form-check">
