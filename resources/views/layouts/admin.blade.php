@@ -27,7 +27,7 @@
 
     <div class="dropdown-content">
         <li>
-            <a href="http://localhost:4200/usuarios/formulario">Cadastrar produtos</a>
+            <a href="http://localhost:4200/usuarios/formulario">Cadastrar usu&aacute;rios</a>
         </li>
     </div>
 </div>
