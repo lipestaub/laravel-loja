@@ -28,16 +28,16 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-1">
-                    <strong>Imagem</strong>
+                    <b>Imagem</b>
                 </div>
                 <div class="col-sm-1">
-                    <strong>Descri&ccedil;&atilde;o</strong>
+                    <b>Descri&ccedil;&atilde;o</b>
                 </div>
                 <div class="col-sm-2">
-                    <strong>Pre&ccedil;o</strong>
+                    <b>Pre&ccedil;o</b>
                 </div>
                 <div class="col-sm-1">
-                    <strong>Op&ccedil;&otilde;es</strong>
+                    <b>Op&ccedil;&otilde;es</b>
                 </div>
             </div>
             <br>

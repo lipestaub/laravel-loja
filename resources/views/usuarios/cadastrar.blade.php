@@ -16,42 +16,42 @@
 <div>
     {{ Form::model($usuario, ['url' => 'usuarios/salvar', 'method' => 'post']) }}
         <div>
-            {{ Form::label('user_type', 'Tipo de usuário') }}
+            <b>{{ Form::label('user_type', 'Tipo de usuário') }}</b>
             <div>
                 {{ Form::select('user_type', array(0 => 'Selecione...', 1 => 'Cliente', 2 => 'Administrador'), null, ['class' => 'form-select form-select-sm']) }}
             </div>
             <br>
-            {{ Form::label('name', 'Nome') }}
+            <b>{{ Form::label('name', 'Nome') }}</b>
             <div>
                 {{ Form::text('name', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('document', 'Documento') }}
+            <b>{{ Form::label('document', 'Documento') }}</b>
             <div>
                 {{ Form::text('document', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('phone_number', 'Celular') }}
+            <b>{{ Form::label('phone_number', 'Celular') }}</b>
             <div>
                 {{ Form::text('phone_number', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('email', 'E-mail') }}
+            <b>{{ Form::label('email', 'E-mail') }}</b>
             <div>
                 {{ Form::email('email', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('password', 'Senha') }}
+            <b>{{ Form::label('password', 'Senha') }}</b>
             <div>
                 {{ Form::password('password', ['class' => 'form-control'])}}
             </div>
             <br>
             <div class="form-check">
                 {{ Form::checkbox('notify', 1, null, ['class' => 'form-check-input']) }}
-                {{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'form-check-label']) }}
+                <b>{{ Form::label('notify', 'Deseja receber notificações?', ['class' => 'form-check-label']) }}</b>
             </div>
             <br>
-            {{ Form::label('chat_id', 'Chat Id') }}
+            <b>{{ Form::label('chat_id', 'Chat Id') }}</b>
             <div>
                 {{ Form::text('chat_id', null, ['class' => 'form-control'])}}
             </div>

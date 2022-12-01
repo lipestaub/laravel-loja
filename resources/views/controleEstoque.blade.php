@@ -15,17 +15,17 @@
 <div>
     {{ Form::model($products, ['url' => 'produtos/controle-de-estoque/registrar', 'method' => 'post']) }}
         <div class="form-group">
-            {{ Form::label('type', 'Tipo') }}
+            <b>{{ Form::label('type', 'Tipo') }}</b>
             {{ Form::select('type', array(0 => 'Selecione...', 1 => 'Saída', 2 => 'Entrada'), null, ['class' => 'form-select form-select-sm']) }}
         </div>
         <br>
         <div class="form-group">
-            {{ Form::label('produto', 'Produto') }}
+            <b>{{ Form::label('produto', 'Produto') }}</b>
             {{ Form::select('product_id', $products, null, ['class' => 'form-select form-select-sm'])}}
         </div>
         <br>  
         <div class="form-group">
-            {{ Form::label('quantity', 'Quantidade') }}
+            <b>{{ Form::label('quantity', 'Quantidade') }}</b>
             {{ Form::text('quantity', null, ['class' => 'form-control'])}}
         </div>
         <br>

@@ -14,22 +14,27 @@
 <div>
     {{ Form::model($produto, ['url' => 'produtos/salvar', 'method' => 'post', 'enctype' => 'multipart/form-data']) }}
         <div class="form-group">
-            {{ Form::label('description', 'Descrição') }}
+            <b>{{ Form::label('description', 'Descrição') }}</b>
             <div>
                 {{ Form::text('description', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('price', 'Preço') }}
+            <b>{{ Form::label('price', 'Preço') }}</b>
             <div>
+                @if ($produto->price == 0)
+                    {{ Form::text('price', '', ['class' => 'form-control'])}}
+                @else
                 {{ Form::text('price', null, ['class' => 'form-control'])}}
+                @endif
+                
             </div>
             <br>
-            {{ Form::label('stock', 'Quantidade') }}
+            <b>{{ Form::label('stock', 'Quantidade') }}</b>
             <div>
                 {{ Form::text('stock', null, ['class' => 'form-control'])}}
             </div>
             <br>
-            {{ Form::label('image_path', 'Imagem') }}
+            <b>{{ Form::label('image_path', 'Imagem') }}</b>
             <div>
                 {{ Form::file('image_path', ['accept' => '.png, .jpg, .jpeg', 'class' => 'form-control form-control-file']) }}
             </div>

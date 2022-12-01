@@ -8,13 +8,13 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-sm-1">
-            <strong>Nome</strong>
+            <b>Nome</b>
         </div>
         <div class="col-sm-1">
-            <strong>Tipo</strong>
+            <b>Tipo</b>
         </div>
         <div class="col-sm-1">
-            <strong>Op&ccedil;&otilde;es</strong>
+            <b>Op&ccedil;&otilde;es</b>
         </div>
     </div>
     <br>
