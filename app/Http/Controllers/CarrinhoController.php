@@ -49,6 +49,8 @@ class CarrinhoController extends Controller
                 }
             }
 
+            $valorTotalCarrinho = str_replace('.', ',', (string) $valorTotalCarrinho);
+
             $view = ['orderedItems' => $orderedItems, 'valorTotalCarrinho' => $valorTotalCarrinho];
 
             return view('carrinho', $view);
