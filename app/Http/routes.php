@@ -49,9 +49,8 @@ Route::group(array('prefix' => 'produtos'), function()
 Route::group(array('prefix' => 'usuarios', 'middleware' => ['admin']), function()
 {
     Route::get('/', 'UsuarioController@listar');
-    Route::get('formulario', 'UsuarioController@formularioCadastro');
+    Route::get('formulario/{id?}', 'UsuarioController@formularioCadastro');
     Route::post('salvar', 'UsuarioController@salvar');
-    Route::get('editar/{id}', 'UsuarioController@editar');
     Route::get('deletar/{id}', 'UsuarioController@deletar');
 });
 

@@ -27,7 +27,7 @@
         </div>
         <div class="col-sm-3">
             <div class="d-flex">
-                <a class="btn btn-primary" href="/usuarios/editar/{{ $usuario->id }}"><i class="fa fa-pencil-square-o"></i> Editar</a>
+                <a class="btn btn-primary" href="/usuarios/formulario/{{ $usuario->id }}"><i class="fa fa-pencil-square-o"></i> Editar</a>
                 <a class="btn btn-danger" href="/usuarios/deletar/{{ $usuario->id }}"><i class="fa fa-remove"></i> Deletar</a>
             </div>
         </div>

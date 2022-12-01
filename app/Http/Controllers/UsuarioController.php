@@ -26,10 +26,21 @@ class UsuarioController extends Controller
         return view('usuarios.listar', $view);
     }
 
-    public function formularioCadastro()
+    public function formularioCadastro($id = null)
     {
-        $usuario = new User();
-        $view = ['usuario' => $usuario];
+        $title = null;
+
+        if ($id == null) {
+            $usuario = new User();
+        }
+        else {
+            $usuario = User::find($id);
+            $usuario->user_type = $usuario->user_type + 1;
+
+            $title = "Editar usuário";
+        }
+    
+        $view = ['usuario' => $usuario, 'title' => $title];
 
         return view('usuarios.cadastrar', $view);
     }
@@ -111,18 +122,6 @@ class UsuarioController extends Controller
         }
 
         return redirect('usuarios/');
-    }
-
-    public function editar($id)
-    {
-        $title = "Editar usuário";
-
-        $usuario = User::find($id);
-        $usuario->user_type = $usuario->user_type + 1;
-
-        $view = ['usuario' => $usuario, 'title' => $title];
-
-        return view('usuarios.cadastrar', $view);
     }
 
     public function deletar ($id)
