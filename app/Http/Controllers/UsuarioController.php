@@ -115,10 +115,12 @@ class UsuarioController extends Controller
 
     public function editar($id)
     {
+        $title = "Editar usuário";
+
         $usuario = User::find($id);
         $usuario->user_type = $usuario->user_type + 1;
 
-        $view = ['usuario' => $usuario];
+        $view = ['usuario' => $usuario, 'title' => $title];
 
         return view('usuarios.cadastrar', $view);
     }

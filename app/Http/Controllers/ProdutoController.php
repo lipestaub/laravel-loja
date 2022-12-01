@@ -31,14 +31,17 @@ class ProdutoController extends Controller
 
     public function formularioCadastro($id = null)
     {
+        $title = null;
+
         if ($id == null) {
             $produto = new Product();
         }
         else {
             $produto = Product::find($id);
+            $title = "Editar produto";
         }
 
-        $view = ['produto' => $produto];
+        $view = ['produto' => $produto, 'title' => $title];
 
         return view('produtos.cadastrar', $view);
     }

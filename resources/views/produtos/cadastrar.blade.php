@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="align-center">
-    <h3>Cadastrar produtos</h3>
+    @if (isset($title) && $title != null)
+        <h3>{{ $title }}</h3>
+    @else
+        <h3>Cadastrar produtos</h3>
+    @endif
     <br>
 </div>
 @if (Session::has('alert-error'))

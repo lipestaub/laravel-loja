@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="align-center">
-    <h3>Cadastrar usuários</h3>
+    @if (isset($title) && $title != null)
+        <h3>{{ $title }}</h3>
+    @else
+        <h3>Cadastrar usu&aacute;rios</h3>
+    @endif
     <br>
 </div>
 
