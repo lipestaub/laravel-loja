@@ -98,7 +98,7 @@ class UsuarioController extends Controller
         if ($numeroErros > 0) {
             $erros = implode(', ', $erros);
             
-            $request->session()->flash('alert-error', 'Verfique os campos (' . $erros . ') e tente novamente.');
+            $request->session()->flash('warning', 'Verfique os campos (' . $erros . ') e tente novamente.');
             return redirect()->back()->withInput($request->all());
         }
 

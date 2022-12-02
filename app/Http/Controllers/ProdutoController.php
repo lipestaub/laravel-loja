@@ -70,7 +70,7 @@ class ProdutoController extends Controller
         if ($numeroErros > 0) {
             $erros = implode(', ', $erros);
             
-            $request->session()->flash('alert-error', 'Verfique os campos (' . $erros . ') e tente novamente.');
+            $request->session()->flash('warning', 'Verfique os campos (' . $erros . ') e tente novamente.');
             return redirect()->back()->withInput($request->all());
         }
 
@@ -187,7 +187,7 @@ class ProdutoController extends Controller
         unset($form['_token']);
 
         if ($form['product_id'] == 0 || $form['type'] == 0) {
-            $request->session()->flash('alert-error', 'Verfique os dados e tente novamente.');
+            $request->session()->flash('warning', 'Verfique os dados e tente novamente.');
             return redirect()->back()->withInput($request->all());
         }
 
@@ -230,10 +230,10 @@ class ProdutoController extends Controller
         $produtos = [];
 
         if (strlen($form['search']) < 2) {
-            $request->session()->flash('alert-error', 'A busca deve conter ao menos 2 caracteres.');
+            $request->session()->flash('warning', 'A busca deve conter ao menos 2 caracteres.');
         }
         else {
-            Session::forget('alert-error');
+            Session::forget('warning');
             $produtos = Product::where('description', 'like', '%'.$form['search'].'%')->get();
         }
 

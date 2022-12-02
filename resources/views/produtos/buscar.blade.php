@@ -6,9 +6,12 @@
     <br>
 </div>
 
-@if (Session::has('alert-error'))
-    <div class="align-center">
-        <span>Erro: {{ Session::get('alert-error') }}</span>
+@if (Session::has('warning'))
+    <div class="card text-bg-warning mb-3">
+        <div class="card-header">Aviso</div>
+        <div class="card-body">
+            <span class="card-text">{{ Session::get('warning') }}</span>
+        </div>
     </div>
     <br>
 @endif
