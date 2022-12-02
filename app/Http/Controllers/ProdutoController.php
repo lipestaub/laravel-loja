@@ -186,8 +186,28 @@ class ProdutoController extends Controller
         $form = $request->all();
         unset($form['_token']);
 
-        if ($form['product_id'] == 0 || $form['type'] == 0) {
-            $request->session()->flash('warning', 'Verfique os dados e tente novamente.');
+        $numeroErros = 0;
+        $erros = [];
+
+        if ($form['product_id'] == 0) {
+            $numeroErros += 1;
+            array_push($erros, 'produto');
+        }
+
+        if ($form['type'] == 0) {
+            $numeroErros += 1;
+            array_push($erros, 'tipo');
+        }
+
+        if ((float) $form['quantity'] == 0) {
+            $numeroErros += 1;
+            array_push($erros, 'quantidade');
+        }
+
+        if ($numeroErros > 0) {
+            $erros = implode(', ', $erros);
+            
+            $request->session()->flash('warning', 'Verfique os campos (' . $erros . ') e tente novamente.');
             return redirect()->back()->withInput($request->all());
         }
 
