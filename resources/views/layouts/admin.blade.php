@@ -1,40 +1,38 @@
 <li>
-    <a href="http://localhost:4200/">Home</a>
+    <a href="http://localhost:4200/" class="nav-link link-dark px-2">Home</a>
 </li>
+
 <li>
-    <a href="http://localhost:4200/carrinho">Carrinho</a>
+    <a href="http://localhost:4200/carrinho" class="nav-link link-dark px-2">Carrinho</a>
 </li>
 
 <div class="dropdown">
-    <li>
-        <a href="http://localhost:4200/produtos/">Produtos</a>
-    </li>
-
-    <div class="dropdown-content">
+    <label class="nav-link link-dark px-2 dropdown-toggle" data-bs-toggle="dropdown">Produtos</label>
+    <ul class="dropdown-menu" data-popper-placement="bottom-start">
         <li>
-            <a href="http://localhost:4200/produtos/buscar">Buscar produtos</a>
+            <a href="http://localhost:4200/produtos/" class="dropdown-item">Listar produtos</a>
         </li>
         <li>
-            <a href="http://localhost:4200/produtos/formulario">Cadastrar produtos</a>
+            <a href="http://localhost:4200/produtos/formulario" class="dropdown-item">Cadastrar produtos</a>
         </li>
-    </div>
+    </ul>
 </div>
 
 <div class="dropdown">
-    <li>
-        <a href="http://localhost:4200/usuarios/">Usu&aacute;rios</a>
-    </li>
-
-    <div class="dropdown-content">
+    <label class="nav-link link-dark px-2 dropdown-toggle" data-bs-toggle="dropdown">Usu&aacute;rios</label>
+    <ul class="dropdown-menu" data-popper-placement="bottom-start">
         <li>
-            <a href="http://localhost:4200/usuarios/formulario">Cadastrar usu&aacute;rios</a>
+            <a href="http://localhost:4200/usuarios/" class="dropdown-item">Listar usu&aacute;rios</a>
         </li>
-    </div>
+        <li>
+            <a href="http://localhost:4200/usuarios/formulario" class="dropdown-item">Cadastrar usu&aacute;rios</a>
+        </li>
+    </ul>
 </div>
 
 <li>
-    <a href="http://localhost:4200/produtos/controle-de-estoque">Controle de estoque</a>
+    <a href="http://localhost:4200/produtos/controle-de-estoque" class="nav-link link-dark px-2">Controle de estoque</a>
 </li>
 <li>
-    <a href="http://localhost:4200/logout">Sair</a>
+    <a href="http://localhost:4200/logout" class="nav-link link-dark px-2">Sair</a>
 </li>

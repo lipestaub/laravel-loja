@@ -8,22 +8,33 @@
 
     {!!Html::style("bootstrap/css/bootstrap.min.css")!!}
     {!!Html::style("site.css")!!}
-    {!!Html::script("bootstrap/js/bootstrap.min.js")!!}
+    {!!Html::script("bootstrap/js/bootstrap.bundle.min.js")!!}
 
     <title>Loja</title>
 </head>
 <body>
     <div>
-        <nav id="menu-h">
-            <ul>
-                @if (empty(Auth::user()))
-                    @include('layouts.loja')
-                @elseif (Auth::user()->user_type == 0)
-                    @include('layouts.loja')
-                @else
-                    @include('layouts.admin')
-                @endif
-            </ul>
+        <!--<header class="py-3 mb-4 border-bottom">
+            <div class="container d-flex flex-wrap justify-content-center">
+              <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto col-4 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Double header</span>
+              </a>
+              @include('layouts.buscar')
+            </div>
+        </header>-->
+        <nav class="py-2 bg-light border-bottom">
+            <div class="container d-flex flex-wrap">
+                <ul class="nav me-auto">
+                    @if (empty(Auth::user()))
+                        @include('layouts.loja')
+                    @elseif (Auth::user()->user_type == 0)
+                        @include('layouts.loja')
+                    @else
+                        @include('layouts.admin')
+                    @endif
+                </ul>
+            </div>
         </nav>
     </div>
     <br>
