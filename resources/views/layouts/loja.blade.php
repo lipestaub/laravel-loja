@@ -1,16 +1,15 @@
 <li>
-    <a href="http://localhost:4200/" class="nav-link link-dark px-2">Home</a>
+    <a href="http://localhost:4200/carrinho" class="nav-link link-dark px-2"><i class="fa fa-shopping-cart"></i> Carrinho</a>
 </li>
-@if (empty(Auth::user()))
 <li>
-    <a href="http://localhost:4200/login" class="nav-link link-dark px-2">Login</a>
+    <a href="http://localhost:4200/minha-conta" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
 </li>
-@endif
 <li>
-    <a href="http://localhost:4200/carrinho" class="nav-link link-dark px-2">Carrinho</a>
+    <a href="http://localhost:4200/meus-pedidos" class="nav-link link-dark px-2"><i class="fa fa-cubes"></i> Meus pedidos</a>
 </li>
+
 @if (Auth::user())
-<li>
-    <a href="http://localhost:4200/logout" class="nav-link link-dark px-2">Sair</a>
-</li>
+    <li>
+        <a href="http://localhost:4200/logout" class="nav-link link-dark px-2">Sair</a>
+    </li>
 @endif
