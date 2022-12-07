@@ -54,11 +54,17 @@ Route::group(array('prefix' => 'usuarios', 'middleware' => ['admin']), function(
     Route::get('deletar/{id}', 'UsuarioController@deletar');
 });
 
-Route::group(array('prefix' => 'carrinho'), function()
+Route::group(array('prefix' => 'carrinho', 'middleware' => ['auth']), function()
 {
     Route::get('editar/{id}', 'CarrinhoController@editar');
     Route::post('salvar-edicao', 'CarrinhoController@salvar');
     Route::get('deletar/{id}', 'CarrinhoController@deletar');
     Route::get('/', 'CarrinhoController@listar');
     Route::post('finalizar/{orderId}', 'CarrinhoController@finalizarPedido');
+});
+
+Route::group(array('prefix' => 'meus-pedidos', 'middleware' => ['auth']), function()
+{
+    Route::get('/', 'PedidoController@listar');
+    Route::get('detalhar', 'PedidoController@detalhar');
 });
