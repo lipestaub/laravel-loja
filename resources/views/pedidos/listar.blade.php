@@ -10,7 +10,10 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-1">
-                    <b>Id</b>
+                    <b>Código</b>
+                </div>
+                <div class="col-sm-1">
+                    <b>Data</b>
                 </div>
                 <div class="col-sm-2">
                     <b>Quantidade de itens</b>
@@ -28,6 +31,9 @@
                 <div class="row text-center">
                     <div class="col-sm-1">
                         {{ $pedido['order_id'] }}
+                    </div>
+                    <div class="col-sm-1">
+                        {{ $pedido['data'] }}
                     </div>
                     <div class="col-sm-2">
                         {{ $pedido['quantity'] }}

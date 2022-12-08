@@ -31,6 +31,7 @@ class PedidoController extends Controller
         $pedidosCliente = [];
 
         foreach ($pedidos as $pedido) {
+            $dataPedido = Order::whereId($pedido[0]->order_id)->get()[0]->updated_at->format('d/m/Y');
             $valorTotal = 0;
             $totalItens = 0;
 
@@ -41,15 +42,16 @@ class PedidoController extends Controller
                 $totalItens += $quantity;
                 $valorTotal += $price * $quantity;
 
-                $b['order_id'] = $orderedItem->order_id;
+                $itemPedido['order_id'] = $orderedItem->order_id;
             }
 
-            $b['quantity'] = $orderedItem->quantity;
-            $b['valorTotal'] = $valorTotal;
-            array_push($pedidosCliente, $b);
+            $itemPedido['quantity'] = $totalItens;
+            $itemPedido['valorTotal'] = $valorTotal;
+            $itemPedido['data'] = $dataPedido;
+            array_push($pedidosCliente, $itemPedido);
         }
 
-        $view = ['pedidos' => $pedidosCliente];
+        $view = ['pedidos' => $pedidosCliente, 'total'];
 
         return view('pedidos.listar', $view);
     }
