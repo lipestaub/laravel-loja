@@ -53,4 +53,28 @@ class PedidoController extends Controller
 
         return view('pedidos.listar', $view);
     }
+
+    public function detalhar($id)
+    {
+        $dataPedido = Order::whereId($id)->get()[0]->updated_at->format('d/m/Y');
+        $horaPedido = Order::whereId($id)->get()[0]->updated_at->format('H') - 3;
+        $minutoPedido = Order::whereId($id)->get()[0]->updated_at->format('i');
+        $horarioPedido = $dataPedido . ' - ' . $horaPedido . ':' . $minutoPedido;
+
+        $orderedItems = OrderedItem::with('product')->whereOrderId($id)->get();
+
+        $totalItens = 0;
+        $valorTotal = 0;
+
+        foreach ($orderedItems as $orderedItem) {
+            $price = (float) str_replace(',', '.', $orderedItem->product->price);
+                $quantity = (float) $orderedItem->quantity;
+                
+                $valorTotal += $price * $quantity;
+        }
+
+        $view = ['id' => $id, 'orderedItems' => $orderedItems, 'horarioPedido' => $horarioPedido, 'valorTotal' => $valorTotal];
+    
+        return view('pedidos.detalhar', $view);
+    }
 }

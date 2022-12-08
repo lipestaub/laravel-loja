@@ -66,5 +66,5 @@ Route::group(array('prefix' => 'carrinho', 'middleware' => ['auth']), function()
 Route::group(array('prefix' => 'meus-pedidos', 'middleware' => ['auth']), function()
 {
     Route::get('/', 'PedidoController@listar');
-    Route::get('detalhar', 'PedidoController@detalhar');
+    Route::get('detalhar/{id}', 'PedidoController@detalhar');
 });
