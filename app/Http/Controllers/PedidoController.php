@@ -15,7 +15,7 @@ class PedidoController extends Controller
     {
         $orderIds = [];
 
-        $orders = Order::whereUserId(Auth::user()->id)->get()->flatten();
+        $orders = Order::where(['user_id' => Auth::user()->id, 'status' => 1])->get();
 
         foreach ($orders as $order) {
             array_push($orderIds, $order->id);
