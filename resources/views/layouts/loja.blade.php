@@ -22,7 +22,7 @@
                     </div>
                     <div class="d-flex">
                         <li>
-                            <a href="http://localhost:4200/minha-conta" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
+                            <a href="/minha-conta" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
                         </li>
                         <li>
                             <a href="/meus-pedidos" class="nav-link link-dark px-2"><i class="fa fa-cubes"></i> Meus pedidos</a>
