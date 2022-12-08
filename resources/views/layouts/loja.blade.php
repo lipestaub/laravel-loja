@@ -27,6 +27,11 @@
                         <li>
                             <a href="/meus-pedidos" class="nav-link link-dark px-2"><i class="fa fa-cubes"></i> Meus pedidos</a>
                         </li>
+                        @if (Auth::user())
+                            <li>
+                                <a href="/logout" class="nav-link link-dark px-2"><i class="fa fa-sign-out"></i> Sair</a>
+                            </li>
+                        @endif
                     </div>
                 </div>
             </ul>
