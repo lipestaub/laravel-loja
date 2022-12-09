@@ -22,7 +22,7 @@
                     </div>
                     <div class="d-flex">
                         <li>
-                            <a href="/minha-conta" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
+                            <a href="{{ '/usuario/' . Auth::user()->id }}" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
                         </li>
                         <li>
                             <a href="/meus-pedidos" class="nav-link link-dark px-2"><i class="fa fa-cubes"></i> Meus pedidos</a>

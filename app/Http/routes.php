@@ -68,3 +68,10 @@ Route::group(array('prefix' => 'meus-pedidos', 'middleware' => ['auth']), functi
     Route::get('/', 'PedidoController@listar');
     Route::get('detalhar/{id}', 'PedidoController@detalhar');
 });
+
+Route::group(array('prefix' => 'usuario', 'middleware' => ['auth']), function()
+{
+    Route::get('/{id}', 'UsuarioController@contaUsuario');
+    Route::get('formulario/{id}', 'UsuarioController@formularioCliente');
+    Route::post('salvar', 'UsuarioController@salvarEdicaoCliente');
+});
