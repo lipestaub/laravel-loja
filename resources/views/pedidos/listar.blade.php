@@ -39,7 +39,7 @@
                         {{ $pedido['quantity'] }}
                     </div>
                     <div class="col-sm-2">
-                        {{'R$ ' . $pedido['valorTotal'] }}
+                        {{'R$ ' . number_format((float) $pedido['valorTotal'], 2, ',', '.') }}
                     </div>
                     <div class="col-sm-1">
                         <a class="btn btn-primary" href="/meus-pedidos/detalhar/{{ $pedido['order_id'] }}">Detalhar</a>
