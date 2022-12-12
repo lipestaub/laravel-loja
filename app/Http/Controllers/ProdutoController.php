@@ -16,7 +16,9 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Product::all();
-        $view = ['produtos' => $produtos];
+        $ultimosProdutos = Product::orderBy('created_at', 'desc')->limit(2)->get();
+
+        $view = ['produtos' => $produtos, 'lastProducts' => $ultimosProdutos];
 
         return view('index', $view);
     }
