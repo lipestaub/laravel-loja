@@ -154,20 +154,21 @@ class CarrinhoController extends Controller
         if ($notify) {
             $nfMessage .= "\n\n" . "Valor total = R$ " . number_format($valorTotalPedido, 2, ',', '.');
 
-            $chatId = Auth::user()->chat_id;
-
-            $nfMessage = urlencode($nfMessage);
-
-            $url = "https://api.telegram.org/bot" . env("TELEGRAM_BOT_TOKEN") . "/sendMessage?chat_id=" . $chatId . "&parse_mode=HTML&text=" . $nfMessage;
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_exec($ch);
-            curl_close($ch);
+            $this->enviarNotaFical(urlencode($nfMessage), Auth::user()->chat_id);
         }
 
         Session::forget('order_id');
 
         return redirect('/');
+    }
+
+    private function enviarNotaFical($nfMessage, $chatId)
+    {
+        $url = "https://api.telegram.org/bot" . env("TELEGRAM_BOT_TOKEN") . "/sendMessage?chat_id=" . $chatId . "&parse_mode=HTML&text=" . $nfMessage;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_exec($ch);
+        curl_close($ch);
     }
 }
