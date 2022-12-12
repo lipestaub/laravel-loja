@@ -220,12 +220,17 @@ class UsuarioController extends Controller
 
     public function contaUsuario($id)
     {
-        $usuario = User::whereId($id)->first();
+        if ($id != 0) {
+            $usuario = User::whereId($id)->first();
 
-        $usuario->notify = $usuario->notify ? 'Sim' : 'Não';
+            $usuario->notify = $usuario->notify ? 'Sim' : 'Não';
 
-        $view = ['usuario' => $usuario];
+            $view = ['usuario' => $usuario];
 
-        return view('usuario.conta', $view);
+            return view('usuario.conta', $view);
+        }
+        else {
+            return redirect('/');;
+        }
     }
 }
