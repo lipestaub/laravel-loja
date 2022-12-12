@@ -1,3 +1,7 @@
+@php
+    $id = isset(Auth::user()->id) ? Auth::user()->id : 0;
+@endphp
+
 <div class="text-center">
     <header class="py-3 container d-flex flex-wrap text-center">
         <div class="col-xs-4 mb-auto mt-auto">
@@ -22,7 +26,7 @@
                     </div>
                     <div class="d-flex">
                         <li>
-                            <a href="{{ '/usuario/' . Auth::user()->id }}" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
+                            <a href="{{ '/usuario/' . $id }}" class="nav-link link-dark px-2"><i class="fa fa-user"></i> Minha conta</a>
                         </li>
                         <li>
                             <a href="/meus-pedidos" class="nav-link link-dark px-2"><i class="fa fa-cubes"></i> Meus pedidos</a>
