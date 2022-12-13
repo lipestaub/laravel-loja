@@ -42,6 +42,10 @@ th, td {
     margin: 0;
 }
 
+.bg-orange {
+    background-color: #fd7e14;
+}
+
 #campoBusca {
     display: inline;
     width: 82%;

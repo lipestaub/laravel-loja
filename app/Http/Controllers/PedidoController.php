@@ -58,23 +58,24 @@ class PedidoController extends Controller
 
     public function detalhar($id)
     {
-        $dataPedido = Order::whereId($id)->get()[0]->updated_at->format('d/m/Y');
-        $horaPedido = Order::whereId($id)->get()[0]->updated_at->format('H') - 3;
-        $minutoPedido = Order::whereId($id)->get()[0]->updated_at->format('i');
-        $horarioPedido = $dataPedido . ' - ' . $horaPedido . ':' . $minutoPedido;
+        $pedido = Order::with([ 'orderedItem' => function( $query ){ return $query->with('product'); } ])->find($id);
+        $strtotime = strtotime($pedido->updated_at->format('d-m-Y H:i'));
+        $strtotime -= 3600 * 3;
+        $horarioPedido = date('d/m/Y - H:i', $strtotime);
 
-        $orderedItems = OrderedItem::with('product')->whereOrderId($id)->get();
-
-        $totalItens = 0;
-        $valorTotal = 0;
-
-        foreach ($orderedItems as $orderedItem) {
+        $orderedItems = $pedido->orderedItem->map(function ($orderedItem) {
             $price = (float) str_replace(',', '.', $orderedItem->product->price);
-                $quantity = (float) $orderedItem->quantity;
+            $quantity = (float) $orderedItem->quantity;
                 
-                $valorTotal += $price * $quantity;
-        }
-
+            $orderedItem->valorTotal = $price * $quantity;
+          
+            //$orderedItem->product->price = number_format($price, 2, ',', '.');
+          
+            return $orderedItem;
+        });
+          
+        //$valorTotal = "R$ " . number_format($orderedItems->sum('valorTotal'), 2, ',', '.');
+        $valorTotal = $orderedItems->sum('valorTotal');
         $view = ['id' => $id, 'orderedItems' => $orderedItems, 'horarioPedido' => $horarioPedido, 'valorTotal' => $valorTotal];
     
         return view('pedidos.detalhar', $view);
