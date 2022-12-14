@@ -6,12 +6,12 @@
         <br>
     </div>
     <div class="row">
-        <div class="col-md-2 float-left no-margin">
+        <div class="col-md-2 float-left no-margin mb-5">
             <div class="bg-orange">
-                <b><span class="text-white"><i class="fa fa-bullhorn"></i> Lançamentos</span></b>
+                <b><span class="text-white p-1"><i class="fa fa-bullhorn"></i> Lançamentos</span></b>
             </div>
             @foreach ($lastProducts as $lastProduct)
-                <div class="border text-center">
+                <div class="border text-center m-1 p-2">
                     <div>
                         @if ($lastProduct->image_path == null)
                             <img class="img-fluid" src="{{ asset('defaultProductImage.jpg') }}">
@@ -32,13 +32,13 @@
             @endforeach
         </div>
 
-        <div class="col-md-10 no-margin float-right">
+        <div class="col-md-10 no-margin float-right mb-5">
             <div class="bg-primary">
                 <b><span class="text-white p-1"><i class="fa fa-chevron-right"></i> Destaques</span></b>
             </div>
             <div class="text-center">
                 @foreach ($produtos as $produto)
-                    <div class="d-inline-block text-center border col-md-2">
+                    <div class="d-inline-block text-center border col-md-2 m-1 p-2">
                         <div>
                             @if ($produto->image_path == null)
                                 <img src="{{ asset('defaultProductImage.jpg') }}">
